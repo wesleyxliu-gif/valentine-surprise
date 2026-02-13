@@ -41,10 +41,20 @@
     }
 
     #yesBtn {
-      background-color: #ff4d88;
-      color: white;
-      box-shadow: 0 0 20px #ff99cc;
-    }
+  font-size: 40px;
+  padding: 25px 60px;
+  background: linear-gradient(45deg, #ff4d88, #ff99cc);
+  color: white;
+  border-radius: 50px;
+  box-shadow: 0 0 40px #ff4d88;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 20px #ff4d88; }
+  50% { box-shadow: 0 0 60px #ff99cc; }
+  100% { box-shadow: 0 0 20px #ff4d88; }
+}
 
     #noBtn {
       background-color: #999;
