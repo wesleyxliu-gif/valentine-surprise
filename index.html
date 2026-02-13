@@ -123,14 +123,16 @@
 
   <div id="message"></div>
 
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f0e6d6f3f.mp3?filename=sweet-cute-music-11711.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="bgMusic">
+  <source src="YOUR_ROMANTIC_MP3_LINK.mp3" type="audio/mpeg">
+</audio>
+
 
   <script>
     function sayYes() {
       document.getElementById("message").innerHTML =
         "YAAAASSSS!!! 🥰✨ I love you! 💖";
+      document.getElementById("bgMusic").play();
       createHearts();
       createConfetti();
     }
