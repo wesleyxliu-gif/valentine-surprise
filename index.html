@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Charis <3 Be My Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #b09ca4, #ffcce6);
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 48px;
+      animation: bounce 2s infinite;
+      text-shadow: 2px 2px 10px #ff4d88;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    button {
+      ont-size: 30px;
+  padding: 20px 45px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #yesBtn {
+      background-color: #ff4d88;
+      color: white;
+      box-shadow: 0 0 20px #ff99cc;
+    }
+
+    #noBtn {
+      background-color: #999;
+      color: white;
+      position: absolute;
+    }
+
+    #message {
+      font-size: 36px;
+      margin-top: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 24px;
+      animation: floatUp 5s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(720deg); }
+    }
+
+    .photo {
+  width: 250px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 25px rgba(255, 77, 136, 0.6);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>Charis &lt;3 💕<br>Valentine?</h1>
+  <img src="charis.gif" alt="Us" class="photo">
+
+  <div class="button-container">
+  <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+  <button id="noBtn" onmouseover="moveButton()">No 😢</button>
+</div>
+
+  <div id="message"></div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f0e6d6f3f.mp3?filename=sweet-cute-music-11711.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function sayYes() {
+      document.getElementById("message").innerHTML =
+        "YAAAASSSS!!! 🥰✨ I love you! 💖";
+      createHearts();
+      createConfetti();
+    }
+
+    function moveButton() {
+      const button = document.getElementById("noBtn");
+      const x = Math.random() * (window.innerWidth - button.offsetWidth);
+      const y = Math.random() * (window.innerHeight - button.offsetHeight);
+      button.style.left = x + "px";
+      button.style.top = y + "px";
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 25; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }
+
+    function createConfetti() {
+      const colors = ["#ff4d88", "#ffffff", "#ff99cc", "#ffccf2", "#ff66a3"];
+      for (let i = 0; i < 150; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+  </script>
+
+</body>
+</html>
